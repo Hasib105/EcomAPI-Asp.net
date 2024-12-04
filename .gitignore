@@ -1,0 +1,32 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider files
+.idea/
+
+# User-specific files
+*.sln.docstates
+
+# Visual Studio Code files
+.vscode/
+
+# Other files to ignore
+*.db
+*.db-journal
+*.log
+*.pdb
+*.cache
+*.swp
+.DS_Store
+
+# Ignore NuGet Pack

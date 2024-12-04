@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcomApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9a829a0e00922928d4b855aef70bc2aa283f50b")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcomApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcomApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
