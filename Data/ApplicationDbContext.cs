@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using EcomApi.Models;
+using System.Linq;
+
 
 namespace EcomApi.Data
 {
@@ -29,5 +31,34 @@ namespace EcomApi.Data
         }
 
         public DbSet<Item> Items { get; set; } // DbSet for Item model
+        public DbSet<Product> Products { get; set; } // DbSet for Product model
+        public DbSet<ProductImage> ProductImages { get; set; } // DbSet for ProductImage model
+        public DbSet<Order> Orders { get; set; } // DbSet for Order model
+        public DbSet<CartItem> CartItem { get; set; } 
+        public DbSet<DeliveryCharge> DeliveryCharges { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+
+        public override int SaveChanges()
+        {
+            var category_entities = ChangeTracker.Entries<Category>()
+                .Where(e => e.State == EntityState.Added);
+
+            foreach (var entity in category_entities)
+            {
+                entity.Entity.GenerateSlug(); // Call the slug generation method
+            }
+
+            var product_entities = ChangeTracker.Entries<Product>()
+                .Where(e => e.State == EntityState.Added);
+
+            foreach (var entity in product_entities)
+            {
+                entity.Entity.GenerateSlug(); // Call the slug generation method
+            }
+
+            return base.SaveChanges();
+        }
+
     }
 }
