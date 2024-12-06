@@ -19,7 +19,7 @@ namespace EcomApi.Models
         public DateTime Created { get; set; } = DateTime.UtcNow;
         public DateTime Updated { get; set; } = DateTime.UtcNow;
 
-        public string CategoryImage { get; set; }
+        public string? CategoryImage { get; set; }
 
         public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 
@@ -30,11 +30,6 @@ namespace EcomApi.Models
             Slug = $"{Slugify(Name)}-{Created:yyyy-MM-dd-HH-mm-ss}";
         }
 
-        private bool SlugExists(string slug)
-        {
-            // Implement your logic to check if slug exists in the database
-            return false;
-        }
 
         private string Slugify(string name)
         {
