@@ -4,9 +4,16 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Logging; // Add this namespace
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure logging
+builder.Logging.ClearProviders(); // Optional: clear default providers
+builder.Logging.AddConsole(); // Log to the console
+builder.Logging.AddDebug(); // Log to the debug output
+// You can add more logging providers as needed
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

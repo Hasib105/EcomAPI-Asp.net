@@ -26,6 +26,14 @@ namespace EcomApi.Data
                 .IsUnique()
                 .HasDatabaseName("IX_ApplicationUser_UserName");
 
+            // Configure the Product-Category relationship
+            builder.Entity<Product>()
+                .HasOne<Category>() // Specify the related entity type
+                .WithMany(c => c.Products) // A Category can have many Products
+                .HasForeignKey(p => p.CategoryId)  // ForeignKey is CategoryId
+                .OnDelete(DeleteBehavior.Cascade); // Cascade delete if a Category is removed
+
+
             // Additional model configurations can go here
         }
 
